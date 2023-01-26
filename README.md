@@ -13,6 +13,6 @@ We plan to implement features such as:
 
 Members:  
  - Timothy Carpenter (Frontend)  
- - Gary Quilligan (Put which end you'll be primarily working on here)  
- - Daniel Rodriguez (Put which end you'll be primarily working on here)  
+ - Gary Quilligan (Backend)  
+ - Daniel Rodriguez (Frontend)  
  - Lixandross Gernier (Backend)  
