@@ -18,7 +18,10 @@ Members:
  - Gary Quilligan (Backend)  
  - Daniel Rodriguez (Frontend)  
  - Lixandross Gernier (Backend)  
+ 
 
+
+----------------------
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
 
 ## Development server
