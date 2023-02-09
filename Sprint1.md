@@ -5,7 +5,7 @@
 
   - As an employer, I want employees to be able to create accounts and log in so that they are identifiable.  
 
-  - As a teacher, I want to be able to create groups that I can assign students to or allow students to assign themselves to so that group members can privately chat.  
+  - As a teacher, I want to be able to create groups that I can assign students to or allow students to assign themselves to so that group members can privately chat. 
 
   - As a teacher, I want sole administrator privileges over the server I create with the ability to add/remove members, create/delete groups, and grant moderator privileges to select members such as other teachers and TAs.  
 
@@ -19,15 +19,13 @@
 
   - As an employee, I want to be able to create zoom meetings for my group so that we can easily schedule times to meet in a zoom call.  
 
-  - As a teacher, I want to be able to have a general chat to send information to the whole class.  
-
-  - As a TA/moderator, I want the ability to chat within many groups to check on progress and answer questions.  
+  - As a TA, I want the ability to chat within any group so that I can check on progress and answer questions.
 
   - As a student, I want there to be group matchmaking based on similar interests to facilitate finding a group.  
 
-  - As a student/teacher I want to be able to see a list of completed task and task that need to get done.  
+  - As a student, I want to be able to see a list of completed tasks and tasks that need to get done so that we can keep track of our work.
 
-  - As a student, I want the ability to collaborate with other groups.  
+  - As a student, I want my group to be able to start a chat with another group so that we can collaborate.
 
   
 What issues we planned to address:
