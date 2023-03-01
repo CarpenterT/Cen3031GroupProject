@@ -15,17 +15,27 @@ import { DashboardTestComponent } from './dashboard-test/dashboard-test.componen
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavTestComponent,
-    DashboardTestComponent
+    DashboardTestComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot([
+      { path: '', component: DashboardTestComponent},
+      { path: 'login', component: LoginPageComponent}
+    ]),
+    FormsModule,
     MatSlideToggleModule,
     LayoutModule,
     MatToolbarModule,
@@ -36,6 +46,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
+    MatInputModule
     
   ],
   providers: [],
