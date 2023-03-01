@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -11,7 +12,6 @@ import (
 type User struct {
 	gorm.Model
 	Username string `gorm:"<-"`
-	Email    string `gorm:"<-"`
 	Password string `gorm:"<-"`
 }
 
