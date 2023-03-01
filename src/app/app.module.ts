@@ -19,6 +19,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { AccountCreateComponent } from './account-create/account-create.component';
 
 
 @NgModule({
@@ -26,14 +27,16 @@ import { MatInputModule } from '@angular/material/input';
     AppComponent,
     NavTestComponent,
     DashboardTestComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    AccountCreateComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([
       { path: '', component: DashboardTestComponent},
-      { path: 'login', component: LoginPageComponent}
+      { path: 'login', component: LoginPageComponent},
+      { path: 'account-create', component: AccountCreateComponent },
     ]),
     FormsModule,
     MatSlideToggleModule,
