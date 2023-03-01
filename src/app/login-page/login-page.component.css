@@ -1,0 +1,30 @@
+.login-card {
+    position: absolute;
+    top: 240px;
+    left: 700px;
+    right: 700px;
+    bottom: 240px;
+    color:dimgray;
+    background-color: burlywood;
+    align-items: center;
+}
+
+.login-form {
+    position: absolute;
+    top: 100px
+}
+
+.login-form-field {
+    width: 100%
+}
+
+.login-button {
+    position: absolute;
+    top: 300px;
+}
+
+.login-card-content {
+    position: absolute;
+    top: 400px;
+    text-align: center;
+}
