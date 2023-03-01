@@ -1,6 +1,6 @@
 <mat-card class="login-card">
     <mat-card-header>
-      <mat-card-title>Log In</mat-card-title>
+      <mat-card-title>Create Account</mat-card-title>
     </mat-card-header>
     <form class="login-form">
         <mat-form-field class="login-form-field">
@@ -12,8 +12,8 @@
             <input matInput name="password" type="password" [(ngModel)]="password">
         </mat-form-field>
     </form>
-    <button mat-raised-button class="login-button" (click)="submit()">Log In</button>
+    <button mat-raised-button class="login-button" (click)="submit()">Create Account</button>
     <mat-card-content class="login-card-content">
-        <a [routerLink]="['/account-create']">Create Account</a>
+        <a [routerLink]="['']">Cancel</a>
     </mat-card-content>
 </mat-card>
