@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -12,7 +13,7 @@ type User struct {
 	Password string `gorm:"<-"`
 }
 
-func main() {
+func testGorm() {
 	db, err := gorm.Open(sqlite.Open("test.db"), &gorm.Config{})
 	if err != nil {
 		fmt.Print("Failed")
@@ -23,11 +24,9 @@ func main() {
 
 	db.AutoMigrate(&User{})
 
-	//db.Create(&User{Username: "username", Password: "sucess"})
+	db.Create(&User{Username: "username", Password: "sucess"})
 	//db.Create(&User{Username: "username1", Password: "12346"})
 	//db.Create(&User{Username: "username2", Password: "12345"})
-
-	//
 
 	user = User{}
 	db.First(&user, 1)
