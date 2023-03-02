@@ -17,10 +17,10 @@ type user struct {
 
 func handleUserGet(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	title := vars["title"]
-	page := vars["page"]
+	username := vars["username"]
+	password := vars["password"]
 
-	fmt.Fprintf(w, "You've requested the book: %s on page %s\n", title, page)
+  fmt.Fprintf(w, "Password: %s username: %s\n", username, password)
 }
 
 func handleUserPost(w http.ResponseWriter, r *http.Request) {
@@ -31,7 +31,7 @@ func handleUserPost(w http.ResponseWriter, r *http.Request) {
 
 	addUser(username, password)
 
-	fmt.Fprintf(w, "You've requested the book: %s on page %s\n", username, password)
+	fmt.Fprintf(w, "Username: %s password %s\n", username, password)
 
 }
 
