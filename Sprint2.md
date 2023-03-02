@@ -15,4 +15,6 @@ Backend tests:
   - ...
 
 Backend API Documentation:
-  - ...
+  - Started writing out http handlers for GET and POST requests from the login page
+  - Created an SQLite database
+  - Created function to add users to the database
