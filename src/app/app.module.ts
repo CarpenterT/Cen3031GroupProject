@@ -20,6 +20,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { AccountCreateComponent } from './account-create/account-create.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { AccountCreateComponent } from './account-create/account-create.componen
     NavTestComponent,
     DashboardTestComponent,
     LoginPageComponent,
-    AccountCreateComponent
+    AccountCreateComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,9 @@ import { AccountCreateComponent } from './account-create/account-create.componen
       { path: '', component: DashboardTestComponent},
       { path: 'login', component: LoginPageComponent},
       { path: 'account-create', component: AccountCreateComponent },
+
+
+      { path: '**', component: ErrorPageComponent },
     ]),
     FormsModule,
     MatSlideToggleModule,
