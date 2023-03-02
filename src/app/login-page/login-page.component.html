@@ -5,15 +5,16 @@
     <form class="login-form">
         <mat-form-field class="login-form-field">
             <mat-label>Username</mat-label>
-            <input name="username" matInput [(ngModel)]="username">
+            <input data-cy="un" name="username" matInput [(ngModel)]="username">
         </mat-form-field>
         <mat-form-field class="login-form-field">
             <mat-label>Password</mat-label>
-            <input matInput name="password" type="password" [(ngModel)]="password">
+            <input data-cy="pw" matInput name="password" type="password" [(ngModel)]="password">
         </mat-form-field>
     </form>
-    <button mat-raised-button class="login-button" (click)="submit()">Log In</button>
+    <button data-cy="button" mat-raised-button class="login-button" (click)="submit()">Log In</button>
     <mat-card-content class="login-card-content">
         <a [routerLink]="['/account-create']">Create Account</a>
     </mat-card-content>
 </mat-card>
+

@@ -39,7 +39,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
       { path: '', component: DashboardTestComponent},
       { path: 'login', component: LoginPageComponent},
       { path: 'account-create', component: AccountCreateComponent },
-
+      //Not sure if below line is working. Might be related to Cypress error.
+      { path: 'login?**', component: LoginPageComponent},
 
       { path: '**', component: ErrorPageComponent },
     ]),
