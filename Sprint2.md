@@ -12,7 +12,8 @@ Frontend tests:
   - Unit tests for each component to ensure they compile.
 
 Backend tests:
-  - ...
+  - Created test to test function for creating Users
+  - Created test for connecting to databse
 
 Backend API Documentation:
   - Started writing out http handlers for GET and POST requests from the login page
