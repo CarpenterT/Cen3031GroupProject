@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -15,14 +13,18 @@ type User struct {
 	Password string `gorm:"<-"`
 }
 
-func initalSQLDataBase() {
+func initalSQLDataBase() string {
 	db, err := gorm.Open(sqlite.Open("ClusterC.db"), &gorm.Config{})
+	var status string
 	if err != nil {
-		fmt.Print("Failed")
+		status = "Failed"
 		panic("failed to connect database")
 	}
 
+	status = "Success"
 	db.AutoMigrate(&User{})
+
+	return status
 }
 
 func main() {
