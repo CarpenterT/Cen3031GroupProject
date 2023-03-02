@@ -15,14 +15,6 @@ type user struct {
 	password string `json:"password"`
 }
 
-func handleUserGet(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
-	username := vars["username"]
-	password := vars["password"]
-
-  fmt.Fprintf(w, "Password: %s username: %s\n", username, password)
-}
-
 func handleUserPost(w http.ResponseWriter, r *http.Request) {
 
 	vars := mux.Vars(r)
@@ -31,17 +23,20 @@ func handleUserPost(w http.ResponseWriter, r *http.Request) {
 
 	addUser(username, password)
 
-	fmt.Fprintf(w, "Username: %s password %s\n", username, password)
+	fmt.Fprintf(w, "You've requested the book: %s on page %s\n", username, password)
 
 }
 
-func addUser(username string, password string) {
-
+func addUser(username string, password string) string {
+	var status string
 	db, err := gorm.Open(sqlite.Open("ClusterC.db"), &gorm.Config{})
 	if err != nil {
-		fmt.Print("Failed")
+		status = "Failed"
 		panic("failed to connect database")
 	}
 
 	db.Create(&User{Username: username, Password: password})
+	status = "Success"
+
+	return status
 }
