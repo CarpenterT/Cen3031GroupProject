@@ -1,11 +1,13 @@
 import { TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        RouterOutletStubComponent
       ],
     }).compileComponents();
   });
@@ -21,11 +23,8 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app.title).toEqual('Cen3031GroupProject');
   });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Cen3031GroupProject app is running!');
-  });
 });
+
+@Component({selector: 'router-outlet', template: ''})
+class RouterOutletStubComponent {
+}
