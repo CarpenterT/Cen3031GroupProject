@@ -14,8 +14,10 @@ func initializeRouter() {
 
 	//defining the functions needed to handle users
 	r.HandleFunc("/users", GetUsers).Methods("GET")
-	r.HandleFunc("/users/{id}", GetUser).Methods("GET")
+	r.HandleFunc("/users/{id}", GetUserByID).Methods("GET")
+	r.HandleFunc("/users/user/{username}", GetUserByName).Methods("GET")
 	r.HandleFunc("/users", CreateUser).Methods("POST")
+	r.HandleFunc("/users/user", CheckPass).Methods("POST")
 	r.HandleFunc("/users/{id}", UpdateUser).Methods("PUT")
 	r.HandleFunc("/users/{id}", DeleteUser).Methods("DELETE")
 
@@ -32,4 +34,5 @@ func main() {
 	InitialMigration()
 	initializeRouter()
 
+	//unit tests go here
 }

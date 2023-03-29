@@ -17,17 +17,40 @@ export class LoginPageComponent {
   constructor(private router: Router, private http: HttpClient){
 
   }
-
+  
 
 
   onCreate(data: {username: string, password: string}){
-    //console.log(data);
-    //TODO: use GET to check if the user exists in DB. Then update appropriately.
-    //      Need to properly authenticate, probably need cookies?
-    // As of right now, this just creates a user in the DB, same as accountCreate.
+    // This function first checks if the username exists in the DB. If it does,
+    // then we check if the password they provided matches the one in the DB.
+    // You can check console to see status after submitting.
+    // For more, see CheckPass() in user.go.
+    
+    // TODO: Need to properly authenticate, probably need cookies?
+    this.http.get('http://localhost:8080/users/user/' + this.username).subscribe((res : any) => {
+      console.log(res);
+      if(res == "User found."){
+        // If user was found, send another request with the password
+        this.http.post('http://localhost:8080/users/user', data).subscribe((response) => {
+          if(response == "Password validated."){
+            //Correct combo
+            console.log("Correct username and password!")
+          }else if(response == "Invalid."){
+            //DB threw ErrRecordNotFound
+            console.log("Incorrect username or password!")
+          }else{
+            //hopefully never reach here.
+            console.log("Unknown Error!")
+          }
+        })
+      }
+    })
+    
+/*
     this.http.post('http://localhost:8080/users', data).subscribe((res) => {
       console.log(res);
     });
+    */
   }
 
 
