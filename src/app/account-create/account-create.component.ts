@@ -10,6 +10,7 @@ export class AccountCreateComponent {
   password: string = '';
   submit() {
     window.alert('Username is: "' + this.username + '". Password is: "' + this.password + '".')
+    localStorage.setItem('currentUser', this.username);
     this.clear()
   }
   clear() {

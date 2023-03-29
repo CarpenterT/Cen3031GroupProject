@@ -13,19 +13,18 @@ export class LoginPageComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private router: Router){
+  constructor(private router: Router) {
 
   }
 
   
   submit() {
     //The alert menu does not update properly in Cypress. Works in normal operation though.
-    window.alert('Username is: "' + this.username + '". Password is: "' + this.password + '".')
+    window.alert('Username is: "' + this.username + '". Password is: "' + this.password + '".');
     //The below line causes a huge error in Cypress.
     this.router.navigate(['/login'], { queryParams: { username: this.username, password: this.password } });
-
-    this.clear()
-    
+    localStorage.setItem('currentUser', this.username);
+    this.clear();
   }
   clear() {
     this.username = '';

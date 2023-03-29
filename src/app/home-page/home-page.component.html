@@ -1,0 +1,22 @@
+<h2>Welcome, {{ user.username }}!</h2>
+
+<div *ngIf="servers && servers.length > 0">
+  <h3>Your Servers:</h3>
+  <ul>
+    <li *ngFor="let server of servers">
+      <a routerLink="/servers/{{ server.id }}">{{ server.name }}</a>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="(!servers || servers.length === 0)">
+  <p>You are not a member of any servers yet.</p>
+</div>
+
+<form (ngSubmit)="onCreateServer()">
+    <div class="form-group">
+      <label for="serverName">Server Name:</label>
+      <input type="text" id="serverName" name="serverName" class="form-control" [(ngModel)]="newServerName" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Server</button>
+</form>
