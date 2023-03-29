@@ -1,6 +1,6 @@
 <mat-card class="login-card">
     <mat-card-header>
-      <mat-card-title>Log In</mat-card-title>
+      <mat-card-title>Create an Account</mat-card-title>
     </mat-card-header>
     
     <form #form="ngForm" class="login-form" (ngSubmit)="onCreate(form.value)">
@@ -15,13 +15,13 @@
             <input data-cy="pw" matInput name="password" type="password" [(ngModel)]="password">
         </mat-form-field>
 
-        <input type="submit" value="Login">
+        <input type="submit" value="Create">
 
     </form>
 
     <!--<button data-cy="button" mat-raised-button class="login-button">Log In</button> <!-->
     <mat-card-content class="login-card-content">
-        <a [routerLink]="['/account-create']">Create Account</a>
+        <a [routerLink]="['/login']">Log In</a>
     </mat-card-content>
 </mat-card>
 
