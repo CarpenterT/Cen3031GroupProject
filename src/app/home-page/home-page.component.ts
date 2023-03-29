@@ -27,5 +27,6 @@ export class HomePageComponent implements OnInit {
 
   onCreateServer() {
     this.serverService.createServer(this.newServerName, this.user.username);
+    this.newServerName = '';
   }
 }

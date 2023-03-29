@@ -1,0 +1,9 @@
+.server-list {
+    width: 20%;
+    margin: auto;
+    text-align: center;
+}
+
+.create-server-form-field {
+    width: 100%
+}
