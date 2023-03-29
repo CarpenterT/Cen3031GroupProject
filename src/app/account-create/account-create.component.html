@@ -1,19 +1,27 @@
 <mat-card class="login-card">
     <mat-card-header>
-      <mat-card-title>Create Account</mat-card-title>
+      <mat-card-title>Log In</mat-card-title>
     </mat-card-header>
-    <form class="login-form">
+    
+    <form #form="ngForm" class="login-form" (ngSubmit)="onCreate(form.value)">
+
         <mat-form-field class="login-form-field">
             <mat-label>Username</mat-label>
-            <input name="username" matInput [(ngModel)]="username">
+            <input data-cy="un" name="username" matInput [(ngModel)]="username">
         </mat-form-field>
+
         <mat-form-field class="login-form-field">
             <mat-label>Password</mat-label>
-            <input matInput name="password" type="password" [(ngModel)]="password">
+            <input data-cy="pw" matInput name="password" type="password" [(ngModel)]="password">
         </mat-form-field>
+
+        <input type="submit" value="Login">
+
     </form>
-    <button mat-raised-button class="login-button" (click)="submit()">Create Account</button>
+
+    <!--<button data-cy="button" mat-raised-button class="login-button">Log In</button> <!-->
     <mat-card-content class="login-card-content">
-        <a [routerLink]="['']">Cancel</a>
+        <a [routerLink]="['/account-create']">Create Account</a>
     </mat-card-content>
 </mat-card>
+
