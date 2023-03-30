@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('Example test', () => {
+describe('Navigation', () => {
   beforeEach(() => {
     cy.visit('/')
   })
@@ -13,13 +13,38 @@ describe('Example test', () => {
   it('Visit account creation page', () => {
     cy.contains('Login!').click()
     cy.contains('Create Account').click()
-    cy.contains('Create Account').should('exist')
+    cy.contains('Create an Account').should('exist')
   })
 
   it('Return from account creation page', () => {
     cy.contains('Login!').click()
     cy.contains('Create Account').click()
-    cy.contains('Cancel').click()
+    cy.contains('Home').click()
     cy.contains('ClusterC').should('exist')
   })
+})
+
+describe('Log In', () => {
+  beforeEach(() => {
+    cy.visit('/')
+  })
+
+  it('Invalid login', () => {
+    cy.contains('Login!').click()
+    cy.contains('Username').click().type('user')
+    cy.contains('Password').click().type('1234')
+    cy.contains('Login').click()
+    cy.contains('Log In').should('exist')
+  })
+
+  /*
+  it('Create account and log in', () => {
+    cy.contains('Login!').click()
+    cy.contains('Create Account').click()
+    cy.contains('Username').click().type('user')
+    cy.contains('Password').click().type('1234')
+    cy.contains('Create').click()
+    cy.contains('Welcome, user!').should('exist')
+  })
+  */
 })
