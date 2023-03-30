@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "a1abee96-1d05-4361-af19-dfed58d9010d",
+		"name": "Cen3031",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Users",
+			"_postman_id": "b81860a9-fb92-4a50-97a0-d9ae3bb4343b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/users",
+				"description": "Get all users in database"
+			},
+			"response": []
+		},
+		{
+			"name": "Get specific user",
+			"_postman_id": "d10cf549-801c-4396-bb3a-eb5edf6219df",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/users/5"
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"_postman_id": "23e4bd52-e81a-462b-bde3-9343af5db43d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"jimbo\",\r\n    \"password\": \"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"_postman_id": "05a4bc4e-321f-4084-b8a0-25d4a084423e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"liam\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/users/2"
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"_postman_id": "cbc449e0-c1fc-4241-bf80-5b0168c72cff",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/users/1"
+			},
+			"response": []
+		}
+	]
+}
