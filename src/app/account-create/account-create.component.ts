@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MatCard } from '@angular/material/card';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -14,12 +13,8 @@ export class AccountCreateComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private router: Router, private http: HttpClient){
-
-  }
-
-
-
+  constructor(private router: Router, private http: HttpClient){ }
+  
   onCreate(data: {username: string, password: string}){
 
     // this sends the post request to add a username and password
@@ -44,10 +39,11 @@ export class AccountCreateComponent {
             alert("Error, try again.")
           }
         });
-      }
+        localStorage.setItem('currentUser', data.username);
+    this.router.navigate(['/home']);
+  }
     })
     
-
 
   }
 

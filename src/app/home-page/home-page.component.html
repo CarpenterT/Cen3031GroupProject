@@ -1,0 +1,26 @@
+<div class="server-list">
+    <h1>Welcome, {{ username }}!</h1>
+
+    <div *ngIf="servers && servers.length > 0">
+        <h2>Your Servers:</h2>
+        <ul>
+            <li *ngFor="let server of servers">
+                <a routerLink="/servers/{{ server.id }}">{{ server.name }}</a>
+            </li>
+        </ul>
+    </div>
+
+    <div *ngIf="(!servers || servers.length === 0)">
+        <p>You are not a member of any servers yet.</p>
+    </div>
+
+    <form (ngSubmit)="onCreateServer()" class="create-server-form">
+        <mat-form-field class="create-server-form-field">
+            <mat-label>Server Name</mat-label>
+            <input matInput name="server-name" [(ngModel)]="newServerName">
+        </mat-form-field>
+        <button mat-raised-button type="submit" class="create-account-button">Create Server</button>
+    </form>
+</div>
+
+<button mat-raised-button class="logout-button" (click)="onLogout()">Logout</button>
