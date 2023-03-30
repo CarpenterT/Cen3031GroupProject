@@ -1,5 +1,5 @@
 <div class="server-list">
-    <h1>Welcome, {{ user.username }}!</h1>
+    <h1>Welcome, {{ username }}!</h1>
 
     <div *ngIf="servers && servers.length > 0">
         <h2>Your Servers:</h2>
@@ -22,3 +22,5 @@
         <button mat-raised-button type="submit" class="create-account-button">Create Server</button>
     </form>
 </div>
+
+<button mat-raised-button class="logout-button" (click)="onLogout()">Logout</button>

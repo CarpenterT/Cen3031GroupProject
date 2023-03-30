@@ -30,7 +30,8 @@ export class LoginPageComponent {
           if(response == "Password validated."){
             //Correct combo
             console.log("Correct username and password!")
-            localStorage.setItem('currentUser', this.username);
+            localStorage.setItem('currentUser', data.username);
+            this.router.navigate(['/home']);
           }else if(response == "Invalid."){
             //DB threw ErrRecordNotFound
             console.log("Incorrect username or password!")

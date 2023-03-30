@@ -24,7 +24,8 @@ export class AccountCreateComponent {
     this.http.post('http://localhost:8080/users', data).subscribe((res) => {
       console.log(res);
     });
-    localStorage.setItem('currentUser', this.username);
+    localStorage.setItem('currentUser', data.username);
+    this.router.navigate(['/home']);
   }
 
 }
