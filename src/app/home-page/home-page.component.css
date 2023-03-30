@@ -1,0 +1,15 @@
+.server-list {
+    width: 20%;
+    margin: auto;
+    text-align: center;
+}
+
+.create-server-form-field {
+    width: 100%
+}
+
+.logout-button {
+    position:absolute;
+    top: 10%;
+    right: 1%;
+}

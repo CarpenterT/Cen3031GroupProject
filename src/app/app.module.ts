@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,7 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { AccountCreateComponent } from './account-create/account-create.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HomePageComponent } from './home-page/home-page.component';
 import { ChatBoxTestComponent } from './chat-box-test/chat-box-test.component';
 
 
@@ -34,15 +35,18 @@ import { ChatBoxTestComponent } from './chat-box-test/chat-box-test.component';
     LoginPageComponent,
     AccountCreateComponent,
     ErrorPageComponent,
+    HomePageComponent,
     ChatBoxTestComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: DashboardTestComponent},
       { path: 'login', component: LoginPageComponent},
       { path: 'account-create', component: AccountCreateComponent },
+      { path: 'home', component: HomePageComponent },
       { path: 'chat-page', component: ChatBoxTestComponent },
       //Not sure if below line is working. Might be related to Cypress error.
       { path: 'login?**', component: LoginPageComponent},
