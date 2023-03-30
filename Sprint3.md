@@ -1,10 +1,16 @@
 ## Sprint 3
 
 Work completed in Sprint 3:
-  - updated backend structure and database structure to support servers groups and unique users
+  - Updated backend structure and database structure to support servers groups and unique users.
+  - Added user and server services to communicate with backend.
+  - Implemented account creation and log in functionality.
+  - Added a home page for logged in users that displays a list of servers they belong to.
+  - Design adjustments.
 
 Frontend tests:
   - Cypress e2e test that begins at the homepage, navigates to account-create, and tries to create an already existing account.
+  - Cypress e2e test that navigates between several pages.
+  - Cypress e2e test that attempts to log in with invalid credentials.
 
 Backend tests:
   - Postman unit test that tests get users, get specific user, create new user, update user, and delete user requests
