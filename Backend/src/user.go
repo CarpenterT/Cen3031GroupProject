@@ -74,7 +74,7 @@ func GetUserByName(w http.ResponseWriter, r *http.Request) {
 
 // function handles checking if a user has the right password
 func CheckPass(w http.ResponseWriter, r *http.Request) {
-	println("Reached")
+	//println("Reached")
 	w.Header().Set("Content-Type", "application/json")
 	var user User
 	json.NewDecoder(r.Body).Decode(&user)

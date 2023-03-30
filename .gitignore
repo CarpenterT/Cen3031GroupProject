@@ -58,3 +58,4 @@ Thumbs.db
 
 # Dependency directories
 vendor/
+Backend/src/database/ClusterC.db

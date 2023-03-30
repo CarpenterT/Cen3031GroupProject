@@ -35,9 +35,11 @@ export class LoginPageComponent {
           if(response == "Password validated."){
             //Correct combo
             console.log("Correct username and password!")
+            alert("Login successful!")
           }else if(response == "Invalid."){
             //DB threw ErrRecordNotFound
             console.log("Incorrect username or password!")
+            alert("Login failed: wrong username or password!")
           }else{
             //hopefully never reach here.
             console.log("Unknown Error!")
