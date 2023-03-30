@@ -1,17 +1,3 @@
-# github.com/felixge/httpsnoop v1.0.1
-## explicit; go 1.13
-# github.com/go-logfmt/logfmt v0.5.1
-## explicit; go 1.17
-# github.com/go-logr/logr v1.2.3
-## explicit; go 1.16
-# github.com/go-sql-driver/mysql v1.7.0
-## explicit; go 1.13
-# github.com/godror/godror v0.36.0
-## explicit; go 1.17
-# github.com/godror/knownpb v0.1.0
-## explicit; go 1.17
-# github.com/gorilla/handlers v1.5.1
-## explicit; go 1.14
 # github.com/gorilla/mux v1.8.0
 ## explicit; go 1.12
 github.com/gorilla/mux
@@ -27,10 +13,6 @@ github.com/mattn/go-sqlite3
 # github.com/rs/cors v1.8.3
 ## explicit; go 1.13
 github.com/rs/cors
-# google.golang.org/protobuf v1.28.1
-## explicit; go 1.11
-# gorm.io/driver/mysql v1.4.7
-## explicit; go 1.14
 # gorm.io/driver/sqlite v1.4.4
 ## explicit; go 1.14
 gorm.io/driver/sqlite
