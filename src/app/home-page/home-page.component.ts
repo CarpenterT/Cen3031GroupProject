@@ -19,7 +19,7 @@ export class HomePageComponent implements OnInit {
   constructor(private router: Router, private serverService: ServerService, private userService: UserService) { }
 
   ngOnInit(): void {
-    if (localStorage.getItem('currentUser') == '') {
+    if (!localStorage.getItem('currentUser') || localStorage.getItem('currentUser') == '') {
       this.router.navigate(['/']);
     }
     this.username = localStorage.getItem('currentUser') || '';
