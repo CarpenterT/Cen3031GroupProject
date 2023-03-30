@@ -4,7 +4,7 @@ Work completed in Sprint 3:
   - updated backend structure and database structure to support servers groups and unique users
 
 Frontend tests:
-  - 
+  - Cypress e2e test that begins at the homepage, navigates to account-create, and tries to create an already existing account.
 
 Backend tests:
   - 
