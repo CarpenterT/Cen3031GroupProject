@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { MatCard } from '@angular/material/card';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-page',
@@ -13,21 +13,41 @@ export class LoginPageComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private router: Router) {
-
-  }
-
+  constructor(private router: Router, private http: HttpClient) { }
   
-  submit() {
-    //The alert menu does not update properly in Cypress. Works in normal operation though.
-    window.alert('Username is: "' + this.username + '". Password is: "' + this.password + '".');
-    //The below line causes a huge error in Cypress.
-    this.router.navigate(['/login'], { queryParams: { username: this.username, password: this.password } });
-    localStorage.setItem('currentUser', this.username);
-    this.clear();
+  onCreate(data: {username: string, password: string}){
+    // This function first checks if the username exists in the DB. If it does,
+    // then we check if the password they provided matches the one in the DB.
+    // You can check console to see status after submitting.
+    // For more, see CheckPass() in user.go.
+    
+    // TODO: Need to properly authenticate, probably need cookies?
+    this.http.get('http://localhost:8080/users/user/' + this.username).subscribe((res : any) => {
+      console.log(res);
+      if(res == "User found."){
+        // If user was found, send another request with the password
+        this.http.post('http://localhost:8080/users/user', data).subscribe((response) => {
+          if(response == "Password validated."){
+            //Correct combo
+            console.log("Correct username and password!")
+            localStorage.setItem('currentUser', this.username);
+          }else if(response == "Invalid."){
+            //DB threw ErrRecordNotFound
+            console.log("Incorrect username or password!")
+          }else{
+            //hopefully never reach here.
+            console.log("Unknown Error!")
+          }
+        })
+      }
+    })
+    
+/*
+    this.http.post('http://localhost:8080/users', data).subscribe((res) => {
+      console.log(res);
+    });
+    */
   }
-  clear() {
-    this.username = '';
-    this.password = '';
-  }
+
+
 }

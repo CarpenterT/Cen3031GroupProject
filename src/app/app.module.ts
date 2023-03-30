@@ -23,6 +23,8 @@ import { MatInputModule } from '@angular/material/input';
 import { AccountCreateComponent } from './account-create/account-create.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { ChatBoxTestComponent } from './chat-box-test/chat-box-test.component';
+
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     LoginPageComponent,
     AccountCreateComponent,
     ErrorPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    ChatBoxTestComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { HomePageComponent } from './home-page/home-page.component';
       { path: 'login', component: LoginPageComponent},
       { path: 'account-create', component: AccountCreateComponent },
       { path: 'home', component: HomePageComponent },
+      { path: 'chat-page', component: ChatBoxTestComponent },
       //Not sure if below line is working. Might be related to Cypress error.
       { path: 'login?**', component: LoginPageComponent},
 
@@ -60,7 +64,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule,
     
   ],
   providers: [],

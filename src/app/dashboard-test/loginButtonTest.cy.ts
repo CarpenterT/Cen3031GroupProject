@@ -5,7 +5,7 @@ describe('loginButtonTest.cy.ts', () => {
     cy.mount(DashboardTestComponent, {
 
     })
-
+    cy.get('[data-cy=Lb]').should('have.text', "Login!")
     cy.get('[data-cy=Lb]').click()
   })
   
