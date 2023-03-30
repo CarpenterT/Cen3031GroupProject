@@ -7,7 +7,7 @@ Frontend tests:
   - Cypress e2e test that begins at the homepage, navigates to account-create, and tries to create an already existing account.
 
 Backend tests:
-  - 
+  - Postman unit test that tests get users, get specific user, create new user, update user, and delete user requests
 
 Backend API Documentation:
   - Database schema: users,groups,servers(Servers have users and groups, groups have users)
