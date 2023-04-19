@@ -13,12 +13,12 @@ import (
 )
 
 type Server struct {
-	ID              uint
-	CreatedAt       time.Time
-	UpdatedAt       time.Time
-	DeletedAt       gorm.DeletedAt `gorm:"index"`
-	serverName      string         `json:"name"`
-	serverCreatorID uint           `json:"admin"`
+	ID         uint
+	CreatedAt  time.Time
+	UpdatedAt  time.Time
+	DeletedAt  gorm.DeletedAt `gorm:"index"`
+	ServerName string         `json:"name"`
+	Admin      string         `json:"admin"`
 }
 
 type ServerGroups struct {
