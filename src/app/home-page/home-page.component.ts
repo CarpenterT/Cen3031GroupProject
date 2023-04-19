@@ -50,6 +50,7 @@ export class HomePageComponent implements OnInit {
     //this.serverService.createServer(this.newServerName, this.username);
     this.http.post('http://localhost:8080/servers', { name, admin });
     this.newServerName = '';
+    this.ngOnInit();
   }
 
   onLogout() {
