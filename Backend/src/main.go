@@ -9,7 +9,6 @@ import (
 )
 
 func initializeRouter() {
-
 	r := mux.NewRouter()
 
 	//defining the functions needed to handle users
@@ -20,6 +19,15 @@ func initializeRouter() {
 	r.HandleFunc("/users/user", CheckPass).Methods("POST")
 	r.HandleFunc("/users/{id}", UpdateUser).Methods("PUT")
 	r.HandleFunc("/users/{id}", DeleteUser).Methods("DELETE")
+
+	//defining the functions needed to handle servers
+	r.HandleFunc("/servers", GetServer).Methods("GET")
+	r.HandleFunc("/servers/{id}", GetServerByID).Methods("GET")
+	r.HandleFunc("/servers/servers/{servername}", GetServerByName).Methods("GET")
+	r.HandleFunc("/server", CreateServer).Methods("POST")
+	//r.HandleFunc("/server/user", CheckPass).Methods("POST")
+	r.HandleFunc("/server/{id}", UpdateServer).Methods("PUT")
+	r.HandleFunc("/server/{id}", DeleteServer).Methods("DELETE")
 
 	//this line fixes issues with cross origin garbage. Finally.
 	handler := cors.AllowAll().Handler(r)
