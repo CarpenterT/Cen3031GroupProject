@@ -15,33 +15,24 @@ type User struct {
 
 type Server struct {
 	gorm.Model
-
-	ID              int64
-	ServerCreatorID string `gorm:"<-"`
-	ServerName      string `gorm:"<-"`
-	ServerSize      int64  `gorm:"<-"`
+	ServerName string `gorm:"<-"`
+	Admin      string `gorm:"<-"`
 }
 
 type ServerGroups struct {
 	gorm.Model
-
-	ID       int64
 	GroupID  int64 `gorm:"<-"`
 	ServerID int64 `gorm:"<-"`
 }
 
 type ServerUsers struct {
 	gorm.Model
-
-	ID       int64
 	UserID   int64 `gorm:"<-"`
 	ServerID int64 `gorm:"<-"`
 }
 
 type Groups struct {
 	gorm.Model
-
-	ID             int64
 	GroupCreatorID string
 	GroupName      string `gorm:"<-"`
 	GroupSize      int64  `gorm:"<-"`
@@ -49,7 +40,6 @@ type Groups struct {
 
 type GroupMembers struct {
 	gorm.Model
-
 	UserID  int64
 	GroupID int64
 }
@@ -74,5 +64,5 @@ func initalSQLDataBase() string {
 }
 
 func main() {
-	initalSQLDataBase()
+	print(initalSQLDataBase())
 }
