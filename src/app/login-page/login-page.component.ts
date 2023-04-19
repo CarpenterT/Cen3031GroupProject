@@ -37,13 +37,17 @@ export class LoginPageComponent {
             this.router.navigate(['/home']);
           }else if(response == "Invalid."){
             //DB threw ErrRecordNotFound
-            console.log("Incorrect username or password!")
+            console.log("Incorrect password!")
             alert("Login failed: wrong username or password!")
           }else{
             //hopefully never reach here.
             console.log("Unknown Error!")
           }
         })
+      }else{
+        // If user was not found
+        console.log("User does not exist!")
+        alert("Login failed: username does not exist!")
       }
     })
     
