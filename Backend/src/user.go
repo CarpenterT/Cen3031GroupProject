@@ -10,6 +10,10 @@ import (
 	"github.com/gorilla/mux"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
+	//"gorm.io/plugin/dbresolver"
+	// https://github.com/go-gorm/dbresolver/blob/master/README.md
+	// I tried to figure out how to make this work, but the documentation kinda blows.
+	// It would be a better alternative for using multiple servers like we do
 )
 
 var DB *gorm.DB
@@ -27,13 +31,14 @@ type User struct {
 }
 
 // function to handle initial migration and opening
-func InitialMigration() {
+func InitUserDB() {
 	DB, err = gorm.Open(sqlite.Open(DNS), &gorm.Config{})
 	if err != nil {
 		fmt.Println(err.Error())
 		panic("Cannot connect to DB")
 	}
 	DB.AutoMigrate(&User{})
+	fmt.Println("ClusterC.cb opened.")
 }
 
 // function handles asking for a list of all users
