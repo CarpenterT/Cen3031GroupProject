@@ -47,7 +47,7 @@ func initializeRouter() {
 // This gets the server running, and in the web app you can now add to the database.
 // We are writing to ClusterC.db in backend/src/database. Do not hard-code your full path. See user.go.
 func main() {
-	InitialMigration()
+	InitUserDB()
 	InitChatDB()
 	InitialServerMigration()
 	initializeRouter()

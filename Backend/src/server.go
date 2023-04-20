@@ -49,6 +49,7 @@ func InitialServerMigration() {
 	DB.AutoMigrate(&Server{})
 	DB.AutoMigrate(&ServerGroups{})
 	DB.AutoMigrate(&ServerUsers{})
+	fmt.Println("Server migrated.")
 }
 
 // function handles asking for a list of all servers
