@@ -2,10 +2,9 @@
 
 Work completed in Sprint 4:
   - Added a page to demonstrate the chat functionality also completed in this Sprint. Users can add and delete messages.
-  - 
-  - 
-  - 
-  - 
+  - Integrated server creation with backend, creating servers now creates an entry in the database.
+  - Added backend support for servers and groups.
+  - Fixed login issues.
 
 Frontend tests:
   - Cypress e2e test that begins at the homepage, navigates to account-create, and tries to create an already existing account.
