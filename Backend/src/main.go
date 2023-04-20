@@ -40,6 +40,7 @@ func initializeRouter() {
 // We are writing to ClusterC.db in backend/src/database. Do not hard-code your full path. See user.go.
 func main() {
 	InitialMigration()
+	InitialServerMigration()
 	initializeRouter()
 
 	//unit tests go here
