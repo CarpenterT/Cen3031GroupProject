@@ -1,12 +1,13 @@
 <div class="chat-room">
     <div class="chat-messages">
-        <div class="chat-message" *ngFor="let message of messages">
-            {{ message }}
+        <!--Load each part of each message using for loop below-->
+        <div class="chat-message" *ngFor="let oneUser of users; let x = index">
+            {{ "(" +  whenCreateds[x] + ") " }} {{ users[x] + ": " }} {{ messages[x] }}
             <button class="menu-buttons" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
                 <mat-icon>more_vert</mat-icon>
               </button>
               <mat-menu #menu="matMenu">
-                <button mat-menu-item>
+                <button mat-menu-item (click)="editMessage(whenCreateds[x], users[x], messages[x])">
                   <span>Edit message</span>
                 </button>
                 <!--TODO: Add logic to check for ownership, as well as logic

@@ -27,6 +27,7 @@ func initializeRouter() {
 	r.HandleFunc("/chat", CreateMsg).Methods("POST")
 	r.HandleFunc("/chat/{id}", UpdateMsg).Methods("PUT")
 	r.HandleFunc("/chat/{id}", DeleteMsg).Methods("DELETE")
+	r.HandleFunc("/chat/find", GetMsgID).Methods("GET")
 
 	//this line fixes issues with cross origin garbage. Finally.
 	handler := cors.AllowAll().Handler(r)

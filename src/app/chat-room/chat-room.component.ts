@@ -10,6 +10,10 @@ import { HttpClient } from '@angular/common/http';
 export class ChatRoomComponent {
     messages: string[] = [];
     message: string = '';
+    users: string[] = [];
+    oneUser: string = '';
+    whenCreateds: string[] = [];
+    whenCreated: string = '';
 
     constructor(private router: Router, private http: HttpClient) { }
     
@@ -22,8 +26,12 @@ export class ChatRoomComponent {
       this.http.get('http://localhost:8080/chat').subscribe((res: any) => {
         console.log(res);
         let i = 0;
+        // This for loop uses the array from the GET to load the arrays below.
+        // These are then drawn on the page.
         for (var entry of res){
-          this.messages[i] = entry.username + ": " + entry.msg;
+          this.whenCreateds[i] = entry.CreatedAt.substring(0,19);
+          this.messages[i] = entry.msg;
+          this.users[i] = entry.username;
           i++;
         }
       })
@@ -48,5 +56,22 @@ export class ChatRoomComponent {
           // Refresh the messages
           this.updateMessages();
       })
+    }
+
+    editMessage(when: string, who: string, what: string){
+      // this is awkward
+      let data: {when1: string, who1: string, what1: string} = {
+        when1: when,
+        who1: who,
+        what1: what
+      }
+      console.log(data);
+      // First get the message from the server using the time, username,
+      // and message.
+      //this.http.get('http://localhost:8080/chat/find/' + data).subscribe((res: any) => {
+
+
+      //})
+      
     }
 }

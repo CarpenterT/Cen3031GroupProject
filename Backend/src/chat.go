@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	//"errors"
+	"errors"
 	"fmt"
 	"net/http"
 	"time"
@@ -14,7 +14,7 @@ import (
 
 var chatDB *gorm.DB
 
-//var chatErr error
+var chatErr error
 
 const chatDNS = "database\\chat.db"
 
@@ -56,6 +56,26 @@ func GetMsgByID(w http.ResponseWriter, r *http.Request) {
 	var msg Message
 	chatDB.First(&msg, params["id"])
 	json.NewEncoder(w).Encode(msg)
+}
+
+// function handles finding a message's id by checking the time, user, and message text.
+func GetMsgID(w http.ResponseWriter, r *http.Request) {
+	//println("Reached")
+	w.Header().Set("Content-Type", "application/json")
+	var msg Message
+	json.NewDecoder(r.Body).Decode(&msg)
+	// Check if time, username, and message are valid for a row.
+	err := chatDB.Where("created_at = ? AND username = ? AND msg = ?", msg.CreatedAt, msg.Username, msg.Msg).First(&msg).Error
+	if err == nil {
+		// If the message was found, return it's ID
+		json.NewEncoder(w).Encode(msg.ID)
+	} else if errors.Is(err, gorm.ErrRecordNotFound) {
+		//if there was an error, like ErrRecordNotFound, we can return that it failed
+		json.NewEncoder(w).Encode("Message not found.")
+	} else {
+		json.NewEncoder(w).Encode("Unknown Error.")
+	}
+
 }
 
 // function handles creating a message
