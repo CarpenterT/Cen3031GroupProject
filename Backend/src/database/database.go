@@ -38,6 +38,13 @@ type Groups struct {
 	GroupSize      int64  `gorm:"<-"`
 }
 
+type Chat struct {
+    gorm.Model
+    Body string gorm:"<-"
+    serverID int64 gorm:"<-"
+    UserID int64 gorm:"<-"
+}
+
 type GroupMembers struct {
 	gorm.Model
 	UserID  int64
@@ -59,6 +66,7 @@ func initalSQLDataBase() string {
 	db.AutoMigrate(&Server{})
 	db.AutoMigrate(&ServerGroups{})
 	db.AutoMigrate(&ServerUsers{})
+  db.AutoMigrate(&Chat{})
 
 	return status
 }
