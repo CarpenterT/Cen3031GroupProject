@@ -89,7 +89,7 @@ func CreateGroup(w http.ResponseWriter, r *http.Request) {
 	var groups Groups
 	json.NewDecoder(r.Body).Decode(&groups)
 	DB.Create(&groups)
-	json.NewEncoder(w).Encode("User successfully created.")
+	json.NewEncoder(w).Encode("Group successfully created.")
 }
 
 // function handles updating a group already in the database
