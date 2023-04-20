@@ -26,6 +26,7 @@ export class HomePageComponent implements OnInit {
       this.router.navigate(['/']);
     } else {
       this.username = localStorage.getItem('currentUser') || '';
+      /*
       this.http.get('http://localhost:8080/users/user/' + this.username + '/servers').subscribe((serversString: any) => {
         this.serverIDs = serversString.split(',').map(Number);
       })
@@ -34,16 +35,8 @@ export class HomePageComponent implements OnInit {
           this.serverName[serverID] = serverName;
         })
       }
+      */
     }
-    // TODO: change so that user is retrieved as an object. Need list of servers that user is a member of.
-    /*
-    this.userService.getUser(localStorage.getItem('currentUser') || '').subscribe((user: User) => {
-      this.user = user;
-      this.serverService.getServers().subscribe((servers: Server[]) => {
-        this.servers = servers.filter(server => user.servers.includes(server.id));
-      });
-    });
-    */
   }
 
   onCreateServer() {
