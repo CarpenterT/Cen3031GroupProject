@@ -24,18 +24,10 @@ func initializeRouter() {
 	r.HandleFunc("/servers", GetServer).Methods("GET")
 	r.HandleFunc("/servers/{id}", GetServerByID).Methods("GET")
 	r.HandleFunc("/servers/servers/{servername}", GetServerByName).Methods("GET")
-	r.HandleFunc("/server", CreateServer).Methods("POST")
+	r.HandleFunc("/servers", CreateServer).Methods("POST")
 	//r.HandleFunc("/server/user", CheckPass).Methods("POST")
-	r.HandleFunc("/server/{id}", UpdateServer).Methods("PUT")
-	r.HandleFunc("/server/{id}", DeleteServer).Methods("DELETE")
-
-	// Defining the functions needed to handle messages
-	r.HandleFunc("/chat", GetAllMsg).Methods("GET")
-	r.HandleFunc("/chat/{id}", GetMsgByID).Methods("GET")
-	r.HandleFunc("/chat", CreateMsg).Methods("POST")
-	r.HandleFunc("/chat/{id}", UpdateMsg).Methods("PUT")
-	r.HandleFunc("/chat/{id}", DeleteMsg).Methods("DELETE")
-	r.HandleFunc("/chat/find/{created_at}/{username}/{msg1}", GetMsgID).Methods("GET")
+	r.HandleFunc("/servers/{id}", UpdateServer).Methods("PUT")
+	r.HandleFunc("/servers/{id}", DeleteServer).Methods("DELETE")
 
 	//this line fixes issues with cross origin garbage. Finally.
 	handler := cors.AllowAll().Handler(r)
@@ -48,7 +40,6 @@ func initializeRouter() {
 // We are writing to ClusterC.db in backend/src/database. Do not hard-code your full path. See user.go.
 func main() {
 	InitialMigration()
-	InitChatDB()
 	InitialServerMigration()
 	initializeRouter()
 

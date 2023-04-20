@@ -12,19 +12,13 @@ import (
 	"gorm.io/gorm"
 )
 
-// DB *gorm.DB
-//var err error
-
-//const DNS = "database\\ClusterC.db"
-
 type Server struct {
-	ID              uint
-	CreatedAt       time.Time
-	UpdatedAt       time.Time
-	DeletedAt       gorm.DeletedAt `gorm:"index"`
-	serverCreatorID string
-	serverName      string `gorm:"<-"`
-	serverSize      int64  `gorm:"<-"`
+	ID         uint
+	CreatedAt  time.Time
+	UpdatedAt  time.Time
+	DeletedAt  gorm.DeletedAt `gorm:"index"`
+	ServerName string         `json:"name"`
+	Admin      string         `json:"admin"`
 }
 
 type ServerGroups struct {
@@ -52,8 +46,9 @@ func InitialServerMigration() {
 		fmt.Println(err.Error())
 		panic("Cannot connect to DB")
 	}
-	DB.AutoMigrate(&Groups{})
-	DB.AutoMigrate(&GroupMembers{})
+	DB.AutoMigrate(&Server{})
+	DB.AutoMigrate(&ServerGroups{})
+	DB.AutoMigrate(&ServerUsers{})
 }
 
 // function handles asking for a list of all servers
@@ -95,9 +90,9 @@ func GetServerByName(w http.ResponseWriter, r *http.Request) {
 // function handles creating a server
 func CreateServer(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	var groups Groups
-	json.NewDecoder(r.Body).Decode(&groups)
-	DB.Create(&groups)
+	var server Server
+	json.NewDecoder(r.Body).Decode(&server)
+	DB.Create(&server)
 	json.NewEncoder(w).Encode("Server successfully created.")
 }
 
