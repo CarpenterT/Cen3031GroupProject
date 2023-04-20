@@ -21,7 +21,6 @@ export class LoginPageComponent {
     // You can check console to see status after submitting.
     // For more, see CheckPass() in user.go.
     
-    // TODO: Need to properly authenticate, probably need cookies?
     this.http.get('http://localhost:8080/users/user/' + this.username).subscribe((res : any) => {
       console.log(res);
       if(res == "User found."){

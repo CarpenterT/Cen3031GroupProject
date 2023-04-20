@@ -1,0 +1,31 @@
+<div class="chat-room">
+    <div class="chat-messages">
+        <div class="chat-message" *ngFor="let message of messages">
+            {{ message }}
+            <button class="menu-buttons" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <span>Edit message</span>
+                </button>
+                <!--TODO: Add logic to check for ownership, as well as logic
+                for allowing a user to edit a message-->
+                <button mat-menu-item disabled>
+                  <span>Delete message</span>
+                </button>
+              </mat-menu>
+              
+        </div>
+    </div>
+    <form #form="ngForm" class="" (ngSubmit)="sendMessage()">
+    
+    <mat-form-field class="">
+        <mat-label>Message</mat-label>
+        <input class="chat-form" name="message" matInput [(ngModel)]="message">
+    </mat-form-field>
+    <input class="chat-button" type="submit" value="Send">
+</form>
+
+  </div>
+  
