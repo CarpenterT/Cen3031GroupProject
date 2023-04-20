@@ -30,7 +30,7 @@ export class HomePageComponent implements OnInit {
         this.serverIDs = serversString.split(',').map(Number);
       })
       for (var serverID in this.serverIDs) {
-        this.http.get('http://localhost:8080/servers/server/' + serverID).subscribe((serverName: any) => {
+        this.http.get('http://localhost:8080/servers/' + serverID).subscribe((serverName: any) => {
           this.serverName[serverID] = serverName;
         })
       }
@@ -46,9 +46,11 @@ export class HomePageComponent implements OnInit {
     */
   }
 
-  onCreateServer(name: string, admin: string) {
+  onCreateServer() {
     //this.serverService.createServer(this.newServerName, this.username);
-    this.http.post('http://localhost:8080/servers', { name, admin });
+    this.http.post('http://localhost:8080/server', { name: this.newServerName, admin: this.username }).subscribe((res) => {
+      console.log(res);
+    })
     this.newServerName = '';
     this.ngOnInit();
   }

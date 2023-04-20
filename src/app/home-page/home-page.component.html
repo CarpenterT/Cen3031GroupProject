@@ -14,7 +14,7 @@
         <p>You are not a member of any servers yet.</p>
     </div>
 
-    <form (ngSubmit)="onCreateServer(newServerName, username)" class="create-server-form">
+    <form (ngSubmit)="onCreateServer()" class="create-server-form">
         <mat-form-field class="create-server-form-field">
             <mat-label>Server Name</mat-label>
             <input matInput name="server-name" [(ngModel)]="newServerName">
