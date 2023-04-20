@@ -27,7 +27,7 @@ func initializeRouter() {
 	r.HandleFunc("/chat", CreateMsg).Methods("POST")
 	r.HandleFunc("/chat/{id}", UpdateMsg).Methods("PUT")
 	r.HandleFunc("/chat/{id}", DeleteMsg).Methods("DELETE")
-	r.HandleFunc("/chat/find", GetMsgID).Methods("GET")
+	r.HandleFunc("/chat/find/{created_at}/{username}/{msg1}", GetMsgID).Methods("GET")
 
 	//this line fixes issues with cross origin garbage. Finally.
 	handler := cors.AllowAll().Handler(r)
@@ -39,7 +39,7 @@ func initializeRouter() {
 // This gets the server running, and in the web app you can now add to the database.
 // We are writing to ClusterC.db in backend/src/database. Do not hard-code your full path. See user.go.
 func main() {
-	// Start the server in ClusterC mode.
+	// Init the servers
 	InitUserDB()
 	InitChatDB()
 	initializeRouter()

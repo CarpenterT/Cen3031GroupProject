@@ -7,12 +7,12 @@
                 <mat-icon>more_vert</mat-icon>
               </button>
               <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="editMessage(whenCreateds[x], users[x], messages[x])">
+                <button mat-menu-item disabled>
                   <span>Edit message</span>
                 </button>
                 <!--TODO: Add logic to check for ownership, as well as logic
                 for allowing a user to edit a message-->
-                <button mat-menu-item disabled>
+                <button mat-menu-item (click)="deleteMessage(whenCreateds[x], users[x], messages[x])">
                   <span>Delete message</span>
                 </button>
               </mat-menu>

@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-chat-room',
   templateUrl: './chat-room.component.html',
   styleUrls: ['./chat-room.component.css']
 })
+
 export class ChatRoomComponent {
     messages: string[] = [];
     message: string = '';
@@ -29,7 +31,7 @@ export class ChatRoomComponent {
         // This for loop uses the array from the GET to load the arrays below.
         // These are then drawn on the page.
         for (var entry of res){
-          this.whenCreateds[i] = entry.CreatedAt.substring(0,19);
+          this.whenCreateds[i] = entry.CreatedAt;
           this.messages[i] = entry.msg;
           this.users[i] = entry.username;
           i++;
@@ -58,20 +60,34 @@ export class ChatRoomComponent {
       })
     }
 
-    editMessage(when: string, who: string, what: string){
+    deleteMessage(when: string, who: string, what: string){
       // this is awkward
       let data: {when1: string, who1: string, what1: string} = {
-        when1: when,
+        when1: when.replace('T', " "),
         who1: who,
         what1: what
       }
-      console.log(data);
+      //console.log(data);
       // First get the message from the server using the time, username,
       // and message.
-      //this.http.get('http://localhost:8080/chat/find/' + data).subscribe((res: any) => {
+    this.http.get('http://localhost:8080/chat/find/' + data.when1 + "/" + data.who1 + "/" + data.what1).subscribe(async (res: any) => {
+      //console.log(res);
+      if(res == "Message not found." || res == "Unknown Error."){
+        //Do nothing
+      }else{
+        // Delete the message
+        //console.log("res: " + res);
+        this.http.delete('http://localhost:8080/chat/' + res).subscribe((res : any) =>{
 
-
-      //})
+          console.log(res);
+          this.messages = []
+          this.users = []
+          this.whenCreateds = []
+          this.updateMessages();
+        })
+        
+      }
+      })
       
     }
 }

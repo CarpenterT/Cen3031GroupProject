@@ -62,10 +62,11 @@ func GetMsgByID(w http.ResponseWriter, r *http.Request) {
 func GetMsgID(w http.ResponseWriter, r *http.Request) {
 	//println("Reached")
 	w.Header().Set("Content-Type", "application/json")
+	params := mux.Vars(r)
 	var msg Message
 	json.NewDecoder(r.Body).Decode(&msg)
 	// Check if time, username, and message are valid for a row.
-	err := chatDB.Where("created_at = ? AND username = ? AND msg = ?", msg.CreatedAt, msg.Username, msg.Msg).First(&msg).Error
+	err := chatDB.Where("created_at = ? AND username = ? AND msg = ?", params["created_at"], params["username"], params["msg1"]).First(&msg).Error
 	if err == nil {
 		// If the message was found, return it's ID
 		json.NewEncoder(w).Encode(msg.ID)
