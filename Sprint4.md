@@ -1,7 +1,7 @@
 ## Sprint 4
 
 Work completed in Sprint 4:
-  - 
+  - Added a page to demonstrate the chat functionality also completed in this Sprint. Users can add and delete messages.
   - 
   - 
   - 
